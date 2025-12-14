@@ -1,1 +1,0 @@
-/usr/bin/c++  -O3 -march=native -fopenmp -Wall -Wextra CMakeFiles/pcg_exec.dir/src/main.cpp.o -o pcg_exec  libpcg_lib.a -lpthread -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lpthread -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lm -ldl 

@@ -1156,7 +1156,7 @@ int PCG_CP::pcg_ic0(const CsrMatrix& A,
 }
 void PCG_CP::PCG()
 {
-    // indexSortCSR(A.values, A.col_indices, A.row_ptr);
+    indexSortCSR(A.values, A.col_indices, A.row_ptr);
     print_memory_stats("before PCG");
     if (mode == 0)
     {
@@ -1203,7 +1203,7 @@ void PCG_CP::DirectSolver_Golden_Gen()
     // print_memory_stats("before DirectSolver");
     Golden_x.resize(A.num_rows,0);
     MKL_Pardiso_csr(this->A.num_rows, this->A.row_ptr, this->A.col_indices, this->A.values, Golden_x, this->b);
-    ErrorCompare();
+    // ErrorCompare();
     // print_memory_stats("after DirectSolver");
 }
 void PCG_CP::ErrorCompare()

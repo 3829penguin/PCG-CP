@@ -70,9 +70,9 @@ int main(int argc, char* argv[]) {
     //     std::cout << "GS PCG Solving Time: " << elapsed_seconds.count() << " ¬í\n";
     //     std::cout << "Final iteration count: " << final_iter << std::endl;
     // }
-    solver.PCG();
+    // solver.PCG();
     //===========================TESTING===============================
-    // solver.DirectSolver_Golden_Gen();
+    solver.DirectSolver_Golden_Gen();
     //final_iter = solver.jacobi_pcg(solver.A, solver.b, solver.x, max_iter, tol);
     // ¥´¦Lµ²ªG
     ofstream output_x("./Output_x.txt");
@@ -124,7 +124,7 @@ int main(int argc, char* argv[]) {
         }
     }
     cout << "Max = " << max << " " << "min = " << min << endl;
-    // cout << "Golden_Max = " << Golden_max << " " << "Golden_min = " << Golden_min << endl;
-    // cout << "Error_Max = " << Error_max << " " << "Error_min = " << Error_min << endl;
+    cout << "Golden_Max = " << Golden_max << " " << "Golden_min = " << Golden_min << endl;
+    cout << "Error_Max = " << Error_max << " " << "Error_min = " << Error_min << endl;
     return 0;
 }

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libpcg_lib.a CMakeFiles/pcg_lib.dir/src/PCG_CP.cpp.o CMakeFiles/pcg_lib.dir/src/MatrixComputation.cpp.o
-/usr/bin/ranlib libpcg_lib.a
