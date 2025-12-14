@@ -11,17 +11,15 @@ void convertToPardisoCSR_vector(
 )
 {
     
-    // 初始化 CSR 格式數據
-    ia.assign(row_ptr.size(), 0); // row指針，大小為 nROW + 1
-    a.resize(values.size()); // 非零值數組
-    ja.resize(values.size()); // col索引數組
-    // 填充行指針 ia
-    ia[0] = 1; // PARDISO 的行指針從 1 開始
+
+    ia.assign(row_ptr.size(), 0); 
+    a.resize(values.size()); 
+    ja.resize(values.size()); 
+    ia[0] = 1; 
 #pragma omp parallel for num_threads(numProcs)
     for (int i = 1; i < row_ptr.size(); i++) {
         ia[i] = row_ptr[i] + 1;
     }
-    // 遍歷 A 的row鏈表，計算非零元素數量
 #pragma omp parallel for num_threads(numProcs)
     for (int i = 0; i < col_indices.size(); i++)
     {
