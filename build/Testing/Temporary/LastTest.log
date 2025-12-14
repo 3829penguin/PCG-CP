@@ -1,0 +1,19 @@
+Start testing: Dec 12 15:12 CST
+----------------------------------------------------------
+Unable to find executable: /home/cool777/PCG-CP/build/test_exec
+1/1 Testing: PCGTests
+1/1 Test: PCGTests
+Command: ""
+Directory: /home/cool777/PCG-CP/build
+"PCGTests" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"PCGTests" end time: Dec 12 15:12 CST
+"PCGTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 12 15:12 CST

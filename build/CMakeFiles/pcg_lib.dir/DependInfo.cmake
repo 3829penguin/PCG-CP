@@ -1,0 +1,24 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/cool777/PCG-CP/src/MatrixComputation.cpp" "CMakeFiles/pcg_lib.dir/src/MatrixComputation.cpp.o" "gcc" "CMakeFiles/pcg_lib.dir/src/MatrixComputation.cpp.o.d"
+  "/home/cool777/PCG-CP/src/PCG_CP.cpp" "CMakeFiles/pcg_lib.dir/src/PCG_CP.cpp.o" "gcc" "CMakeFiles/pcg_lib.dir/src/PCG_CP.cpp.o.d"
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

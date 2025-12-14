@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -O3 -march=native -fopenmp -Wall -Wextra -flto -shared  -o pcgsolver.cpython-312-x86_64-linux-gnu.so CMakeFiles/pcgsolver.dir/src/pcg_bind.cpp.o  libpcg_lib.a -lpthread -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lpthread -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lm -ldl 

@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -march=native -fopenmp -Wall -Wextra CMakeFiles/test_exec.dir/tests/test_pcg.cpp.o -o test_exec  libpcg_lib.a lib/libgtest.a lib/libgtest_main.a -lpthread -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lpthread -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lm -ldl lib/libgtest.a 
