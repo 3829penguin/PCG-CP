@@ -1,0 +1,12 @@
+mkdir build
+cd build
+cmake ..
+make -j
+ctest --verbose
+
+
+clean:
+rm -rf build/
+
+run:
+./pcg_exec 0 ../Matrix.mtx ../b.mtx 10000 1e-9
