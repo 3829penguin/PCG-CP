@@ -226,6 +226,22 @@ Solve the linear system :math:`Ax = b` using PCG.
 - ``precond`` (str): Preconditioner type (``jacobi``, ``ssor``, ``ic0``)
 - ``omega`` (float): Relaxation parameter for SSOR
 
+solve_csr() API
+---------------------
+::
+
+    solve_csr(row_ptr, col_idx, values, b, max_iter=2000, tol=1e-10, precond="jacobi", omega=None)
+    
+Solve the linear system :math:`Ax = b` using PCG with CSR matrix input.
+- ``row_ptr`` (numpy.ndarray): CSR row pointer array
+- ``col_idx`` (numpy.ndarray): CSR column indices array
+- ``values`` (numpy.ndarray): CSR nonzero values array
+- ``b`` (numpy.ndarray): Right-hand side vector
+- ``max_iter`` (int): Maximum number of iterations
+- ``tol`` (float): Convergence tolerance
+- ``precond`` (str): Preconditioner type (``jacobi``, ``ssor``, ``ic0``)
+- ``omega`` (float): Relaxation parameter for SSOR
+
 Return Value
 ------------
 
