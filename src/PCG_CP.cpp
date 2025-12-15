@@ -239,12 +239,13 @@ void PCG_CP::parsing_b_from_mtx(const std::string& filename)
         stringstream ss(line);
         ss >> n >> is_one;
     }
-    int index;
     double value;
     b.resize(n);
-    while (fin >> index >> value)
+    int index = 0;
+    while (fin >> value)
     {
-        b[index - 1] = value;
+        b[index] = value;
+        index++;
     }
     fin.close();
     cout << "[End Parsing b vector]" << endl;
@@ -987,7 +988,6 @@ int PCG_CP::pcg_ic0(const CsrMatrix& A,
         for (int i = 0; i < n; ++i) {
             p[i] = z[i] + beta * p[i];
         }
-
 
         rs_old = rs_new;
         count_iter++;
