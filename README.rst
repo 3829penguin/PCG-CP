@@ -43,50 +43,69 @@ I aim to solve sparse linear systems with matrix sizes in the range of 10^5*10^5
 2. **Output:** Approximate solution vector :math:`x`.
 3. **Constraints:** The matrix :math:`A` must be an **SPD-matrix** (Symmetric Positive Definite).
 
-API Description
-===============
+Python API Description
+======================
 
-**Preconditioner Options:**
+Header File
+-----------
 
-.. code-block:: c++
+.. code-block:: python
 
-    enum class PreconditionerType {
-        Jacobi,
-        IC
-        //others maybe
-    };
+    import pcgsolver
 
-**Unified Function Signature:**
+    
+Parsing CSR Matrix
+------------------
 
-.. code-block:: c++
+The PCG solver provides functions to parse matrices and vectors
+stored in Matrix Market format and convert them into CSR format.
 
-    vector<double>& PCG_Solver(
-        CSR A, 
-        vector<double>& b, 
-        PreconditionerType preconditioner = PreconditionerType::Jacobi,
-        int max_iter = 1000, 
-        double tol = 1e-8);
+.. code-block:: python
 
-**Example Usage:**
+    solver = pcgsolver.PCG()
+    solver.parse_A("Matrix.mtx")
+    solver.parse_b("b.mtx")
 
-.. code-block:: c++
+Solving Linear Systems
+---------------------
 
-    #include <vector>
-    #include <iostream>
-    #include <PCG_Solver.h>
+The linear system :math:`Ax = b` can be solved using the
+Preconditioned Conjugate Gradient (PCG) method.
 
-    int main() {
-        CSR A;
-        vector<double> b, x;
+.. code-block:: python
 
-        // Default: Jacobi preconditioner
-        x = PCG_Solver(A, b);
+    x = solver.solve(
+        max_iter=2000,
+        tol=1e-10,
+        precond="ic0"
+    )
 
-        // Switch to Gauss–Seidel preconditioner
-        x = PCG_Solver(A, b, PreconditionerType::GaussSeidel);
 
-        return 0;
-    }
+Preconditioners
+---------------
+
+The following preconditioners are supported:
+
+- ``jacobi``  
+  Diagonal Jacobi preconditioner.
+
+- ``ssor``  
+  Symmetric Successive Over-Relaxation (requires ``omega``).
+
+- ``ic0``  
+  Incomplete Cholesky factorization with zero fill-in.
+
+solve(max_iter=2000, tol=1e-10, precond="jacobi", omega=None)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Solve the linear system :math:`Ax = b` using PCG.
+
+:param int max_iter: Maximum number of iterations.
+:param float tol: Convergence tolerance.
+:param str precond: Preconditioner type (``jacobi``, ``ssor``, ``ic0``).
+:param float omega: Relaxation parameter for SSOR.
+:return: Solution vector ``x``.
+:rtype: numpy.ndarray
 
 Engineering Infrastructure
 ==========================
