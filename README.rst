@@ -43,6 +43,97 @@ I aim to solve sparse linear systems with matrix sizes in the range of 10^5*10^5
 2. **Output:** Approximate solution vector :math:`x`.
 3. **Constraints:** The matrix :math:`A` must be an **SPD-matrix** (Symmetric Positive Definite).
 
+Input File Format
+=================
+
+The input matrix must be provided in **Matrix Market coordinate format**
+(``.mtx``). This solver expects a **real-valued sparse matrix** stored in
+COO (coordinate) form.
+
+File Structure
+--------------
+
+::
+
+    %%MatrixMarket matrix coordinate real general
+    % Optional comments
+    <row> <col> <nnz>
+    <i> <j> <value>
+    <i> <j> <value>
+    ...
+
+Header
+------
+
+::
+
+    %%MatrixMarket matrix coordinate real general
+
+- ``matrix`` : matrix data
+- ``coordinate`` : coordinate (COO) storage format
+- ``real`` : real-valued entries
+- ``general`` : general matrix format
+
+Matrix Size and Nonzeros
+------------------------
+
+::
+
+    570000 570000 3947200
+
+- First number: number of rows
+- Second number: number of columns
+- Third number: number of nonzero entries
+
+Matrix Entries
+--------------
+
+Each subsequent line represents a **nonzero entry** of the matrix in the
+following format:
+
+::
+
+    row_index  column_index  value
+
+Example
+~~~~~~~
+
+::
+
+    1 1 0.000325554
+    1 2 -3e-06
+    1 101 -3e-06
+    1 10001 -0.0003
+
+- Indices are **1-based** (Matrix Market convention)
+- Values are stored as floating-point numbers
+- Each row typically contains nonzero entries corresponding to
+  **locally coupled neighboring variables**, which is common in
+  grid-based discretizations such as finite difference methods
+
+Notes
+-----
+
+- The matrix is expected to be **large and sparse**
+- The sparsity pattern usually reflects **local coupling** between
+  neighboring degrees of freedom
+- Such matrices are well suited for iterative solvers such as
+  **Preconditioned Conjugate Gradient (PCG)**
+
+Right-Hand Side Vector
+----------------------
+
+The right-hand side vector ``b`` must also be provided in Matrix Market
+format:
+
+::
+
+    %%MatrixMarket matrix array real general
+    <row>
+    <value>
+    <value>
+    ...
+
 Python API Description
 ======================
 
